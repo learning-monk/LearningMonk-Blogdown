@@ -13,6 +13,28 @@
     
     
     <item>
+      <title>About Me</title>
+      <link>/about/</link>
+      <pubDate>Thu, 17 Sep 2020 20:10:45 +0530</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Experienced Data professional passionate about visualizing data and drawing useful insights. I enjoy working with every aspect of data. Messy data makes my fingers work faster on the keyboard.
+I work with diverse visualization tools and keep adding new tools to my arsenal. This knowledge on tools helps me pick right tool(s) for the data at hand.
+Check my portfolio at https://learning-monk.github.io.
+I am open for remote work and projects. Please contact me on learningmonk444.</description>
+    </item>
+    
+    <item>
+      <title>Being an introvert</title>
+      <link>/posts/being-an-introvert/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/being-an-introvert/</guid>
+      <description>I don&amp;rsquo;t want to bore you with the technical definition of introvert. Rather, I would like to take you through a journey of how an introvert thinks, feels, works which makes you ponder over what is it being an introvert.
+My first taste of understanding the definition of introversion came from Susan Cain after listening to her Ted talk (video below). By the way, if you haven&amp;rsquo;t read her book Quiet: The Power of Introverts in a World That Can’t Stop Talking, please give it a read, you won&amp;rsquo;t regret it.</description>
+    </item>
+    
+    <item>
       <title>What is your Learning Style?</title>
       <link>/posts/what-is-your-learning-style/</link>
       <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
