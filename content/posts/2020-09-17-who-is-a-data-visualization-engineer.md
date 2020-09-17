@@ -1,7 +1,7 @@
 ---
 title: Who Is a Data Visualization Engineer?
 author: Learning Monk
-date: '2020-09-17'
+date: '2020-06-03'
 tags:
   - data-viz
 slug: who-is-a-data-visualization-engineer

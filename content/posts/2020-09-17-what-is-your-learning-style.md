@@ -1,7 +1,7 @@
 ---
 title: What is your Learning Style?
 author: Learning Monk
-date: '2020-09-17'
+date: '2020-09-02'
 tags:
   - learning-styles
   - general-topic
