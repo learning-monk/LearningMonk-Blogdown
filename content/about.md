@@ -14,4 +14,4 @@ I am open for remote work and projects. Please contact me on [learningmonk444.gm
 
 I like writing about topics on Data Visualization and my learning in the field of Data Science. At times, I write about general topics which are close to my heart.
 
-I hope you find this blog interesting and informative.
+*I hope you find this blog interesting and informative.*
