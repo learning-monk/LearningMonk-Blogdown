@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "en-us"
 title = "Learning Monk Blog"
 theme = "hugo-ink"
-paginate = 5
+paginate = 3
 
 copyright = "© learning-monk.github.io"
 
