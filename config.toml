@@ -1,0 +1,75 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Learning Monk Blog"
+theme = "hugo-ink"
+paginate = 5
+
+copyright = "© learning-monk.github.io"
+
+pygmentsstyle = "vs"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+#hrefTargetBlank = true
+
+googleAnalytics = ""
+disqusShortname = ""
+
+[params]
+	subtitle = "All About Data and Visualization"
+
+	# Optional 64x64 avatar image.
+	# avatar = "https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"
+
+	# Content types to disable Disqus on.
+	disableDisqusTypes = ["page"]
+	
+	featherIconsCDN = true
+
+	mode = "auto" # "dark" or "auto"
+	# customCSS = "css/custom.css"  # Custom CSS applied to default styles.
+	# customDarkCSS = "css/custom-dark.css"  # Custom styles applied to dark mode css.
+	# customJS = ["js/custom.js", "js/custom1.js"]  # Custom JS scripts.
+
+# Nav.
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
+
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/learning-monk"
+
+[[params.social]]
+name = "Linkedin"
+icon = "linkedin"
+url = "https://in.linkedin.com/in/pratibha-ks-7194284b"
+
+[[params.social]]
+name = "Stackoverflow"
+icon = "external-link"
+url = "https://stackoverflow.com/users/3668839/ksp585"
+
+[[params.social]]
+name = "learningmonk444@gmail.com"
+icon = "mail"
+url = "mailto:learningmonk444@gmail.com"
+
+[taxonomies]
+   tag = "tags"

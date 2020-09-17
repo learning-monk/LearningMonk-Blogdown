@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>learning-styles on Learning Monk Blog</title>
+    <link>/tags/learning-styles/</link>
+    <description>Recent content in learning-styles on Learning Monk Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© learning-monk.github.io</copyright>
+    <lastBuildDate>Thu, 17 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/learning-styles/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is your Learning Style?</title>
+      <link>/posts/what-is-your-learning-style/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/what-is-your-learning-style/</guid>
+      <description>Have you ever wondered why you weren’t able to concentrate in a class?
+Your thoughts wander about everywhere from plants, water droplets, sky, milky way, universe….. the moment you start listening to a lecture. Generally, people have different levels of concentration. Few people could concentrate for 10 min and few people could concentrate for hours together. This brings us to a point, what makes us different? I would say, it’s all about how our brains are wired.</description>
+    </item>
+    
+  </channel>
+</rss>

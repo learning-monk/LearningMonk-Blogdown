@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Learning Monk Blog</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Learning Monk Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© learning-monk.github.io</copyright>
+    <lastBuildDate>Thu, 17 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>data-viz</title>
+      <link>/tags/data-viz/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data-viz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>general-topic</title>
+      <link>/tags/general-topic/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/general-topic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>learning-styles</title>
+      <link>/tags/learning-styles/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/learning-styles/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
