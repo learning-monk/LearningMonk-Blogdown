@@ -2,10 +2,10 @@
 title: What is your Learning Style?
 author: Learning Monk
 date: '2020-09-17'
-slug: what-is-your-learning-style
-categories: []
 tags:
   - learning-styles
+  - general-topic
+slug: what-is-your-learning-style
 draft: no
 ---
 
