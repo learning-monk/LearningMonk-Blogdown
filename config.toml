@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "en-us"
 title = "Learning Monk Blog"
 theme = "hugo-ink"
-paginate = 3
+paginate = 5
 
 copyright = "© learning-monk.github.io"
 
@@ -15,7 +15,7 @@ googleAnalytics = ""
 disqusShortname = ""
 
 [params]
-	subtitle = "All About Data and Visualization."
+	subtitle = "All About Data and Visualization and a bit about life."
 
 	# Optional 64x64 avatar image.
 	# avatar = "https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"

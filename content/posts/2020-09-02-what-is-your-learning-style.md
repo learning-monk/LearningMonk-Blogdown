@@ -11,7 +11,7 @@ draft: no
 
 Have you ever wondered why you weren’t able to concentrate in a class?
 
-Your thoughts wander about everywhere from plants, water droplets, sky, milky way, universe….. the moment you start listening to a lecture. Generally, people have different levels of concentration. Few people could concentrate for 10 min and few people could concentrate for hours together. This brings us to a point, what makes us different? I would say, it’s all about how our brains are wired.
+Your thoughts wander about everywhere from plants, water droplets, sky, milky way, universe….. the moment you start listening to a lecture. Generally, people have different levels of concentration. Few people could concentrate for 10 min and few could concentrate for hours together. This brings us to a point, what makes us different? I would say, it’s all about how our brains are wired.
 
 I am an introverted person. I like spending time alone with myself. Whenever I have to take up a project, first thing I do is (after thoroughly understanding the project), take a tea break and think about the project in my head, prepare different scenarios and come up with solutions that helps me complete the project in the best possible way. I prepare myself for the unforeseen circumstances with scenario planning. This is my style of learning and understanding.
 
@@ -20,6 +20,7 @@ When I look back at my school life, I wonder how did I survive through those yea
 I thoroughly enjoy a subject when I researched about it, collected material myself and learnt about it all on my own. I don’t have to worry about giving exams as I implement whatever I learnt on projects. This process really helped me learn subjects I once feared. I wondered, if the learning process is so simple why not schools implement this process. Then, it occurred to me, People have different learning styles. Not everyone enjoys the same learning process. All that schools could do is accommodate different styles of learning.
 
 I don’t want to debate about how schools should adapt themselves to accommodate children with different learning styles as that it is a different topic on its own. Sir Ken Robinson gave an excellent Ted Talk on the very same topic (you can watch it below). He did a lot of interesting work on education.
+
 
 [![Do schools kill creativity](http://img.youtube.com/vi/iG9CE55wbtY/0.jpg)](https://www.youtube.com/watch?v=iG9CE55wbtY "Do Schools kill creativity")
 

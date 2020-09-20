@@ -1,0 +1,14 @@
+---
+title: Analyzing Suicide rates for 1985-2016
+author: Learning Monk
+date: '2020-09-18'
+categories:
+  - Data Visualization
+tags:
+  - D3.js
+  - data-viz
+slug: analyzing-suicide-rates-for-1985-2016
+draft: yes
+---
+
+In this article, let us analyze suicide rates for the period 1985 - 2016 by Country.
