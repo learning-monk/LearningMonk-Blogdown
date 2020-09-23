@@ -230,10 +230,10 @@ I would encourage you to experiment with the code provided and come-up with your
 I will only take you through a few important points which will help you understand the code much easily.
 
 This visualization is divided into 4 parts:
-- Main Chart
-- Chart title
-- Legend
-- Tooltip
+* Main Chart
+* Chart title
+* Legend
+* Tooltip
 
 **SVG** acts as a canvas which holds all the data visualization elements. The **Main chart** consists of bars for each gender which are stacked one over the other. The x-axis has **Region** and the Y-axis shows the **count**. 
 
