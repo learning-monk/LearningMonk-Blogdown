@@ -10,4 +10,4 @@ This blog is built with Hugo + Blogdown + netlify.
 
 **Netlify** provides easy deployment options for your blog and it is free to use.
 
-Please check my blog: ![Learning Monk Blog](https://learningmonkblog.netlify.app)
+Please check my blog: [Learning Monk Blog](https://learningmonkblog.netlify.app)
