@@ -230,6 +230,7 @@ I would encourage you to experiment with the code provided and come-up with your
 I will only take you through a few important points which will help you understand the code much easily.
 
 This visualization is divided into 4 parts:
+
 * Main Chart
 * Chart title
 * Legend
