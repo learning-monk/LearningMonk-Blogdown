@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Analyzing Suicide rates 1985-2016 with D3.js - Learning Monk Blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Analyzing Suicide rates 1985-2016 with D3.js">
+<meta itemprop="description" content="In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender.
+Here is the link to the dataset.
+You might ask me, why use D3.js for creating such simple charts, as much easier tools are available. You are right. D3.js is an overkill for such a simple chart. But, the reason behind using D3.">
+<meta itemprop="datePublished" content="2020-09-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1171">
+
+
+
+<meta itemprop="keywords" content="D3.js,data-viz," />
+<meta property="og:title" content="Analyzing Suicide rates 1985-2016 with D3.js" />
+<meta property="og:description" content="In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender.
+Here is the link to the dataset.
+You might ask me, why use D3.js for creating such simple charts, as much easier tools are available. You are right. D3.js is an overkill for such a simple chart. But, the reason behind using D3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/analyzing-suicide-rates-1985-2016/" />
+<meta property="article:published_time" content="2020-09-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Analyzing Suicide rates 1985-2016 with D3.js"/>
+<meta name="twitter:description" content="In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender.
+Here is the link to the dataset.
+You might ask me, why use D3.js for creating such simple charts, as much easier tools are available. You are right. D3.js is an overkill for such a simple chart. But, the reason behind using D3."/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<h1 class="site-title"><a href="/">Learning Monk Blog</a></h1>
+	<div class="site-description"><p>All About Data and Visualization, and a bit about life.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/learning-monk" title="Github" target="_blank"><i data-feather="github"></i></a></li><li><a href="https://in.linkedin.com/in/pratibha-ks-7194284b" title="Linkedin" target="_blank"><i data-feather="linkedin"></i></a></li><li><a href="https://stackoverflow.com/users/3668839/ksp585" title="Stackoverflow" target="_blank"><i data-feather="external-link"></i></a></li><li><a href="mailto:learningmonk444@gmail.com" title="learningmonk444@gmail.com" target="_blank"><i data-feather="mail"></i></a></li></ul>
+		</nav><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">18</span>
+							<span class="rest">Sep 2020</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Analyzing Suicide rates 1985-2016 with D3.js</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>In this article, I am going to create a simple <strong>Stacked bar chart</strong> using <em><strong>D3.js (a Javascript library for data visualization)</strong></em> to understand suicide rates by Region and Gender.</p>
+<p>Here is the link to the <a href="https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016">dataset</a>.</p>
+<p>You might ask me, why use D3.js for creating such simple charts, as much easier tools are available. You are right. D3.js is an overkill for such a simple chart. But, the reason behind using D3.js is, I like to create charts from scratch with code, and D3.js helps me learn intricacies of building charts unlike the commercial tools which gives me ready-made templates to work on.</p>
+<h3 id="my-goal-here-is-to-understand-how-each-piece-is-put-together-to-create-charts-in-d3js">My goal here is to understand how each piece is put together to create charts in D3.js.</h3>
+<p>Now, let&rsquo;s get started with building our stacked bar chart. By the way, you can choose any other chart which suits the question at hand. I have chosen stacked bar chart as I can analyze suicides by region and gender in one chart. Also, bar charts are good for analyzing <strong>categorical data</strong>. <em>Feel free to experiment with other relevant chart types.</em></p>
+<p><em>On a side note, I will be using Visual Studio code (a code editor).</em> Feel free to use code editor of your choice and comfort.</p>
+<p><a href="https://github.com/learning-monk/DataVisualizationProjects_JS/tree/master/DataViz_with_D3js/Stacked%20bar%20chart%20-%20suicides%20by%20region">Github project link</a></p>
+<p>The first step is to create a blank HTML file and load D3.js library. Let&rsquo;s name this file <strong>index.html</strong>.</p>
+<h2 id="html-file">HTML file</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#00f">&lt;!DOCTYPE html&gt;</span>
+&lt;html lang=<span style="color:#a31515">&#34;en&#34;</span>&gt;
+  &lt;head&gt;
+    &lt;meta charset=<span style="color:#a31515">&#34;UTF-8&#34;</span> /&gt;
+    &lt;meta name=<span style="color:#a31515">&#34;viewport&#34;</span> content=<span style="color:#a31515">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+    &lt;meta http-equiv=<span style="color:#a31515">&#34;X-UA-Compatible&#34;</span> content=<span style="color:#a31515">&#34;ie=edge&#34;</span> /&gt;
+    &lt;title&gt;Stacked bar chart&lt;/title&gt;
+    <span style="color:#008000">&lt;!-- Load D3.js library --&gt;</span>
+    &lt;script src=<span style="color:#a31515">&#34;https://d3js.org/d3.v5.min.js&#34;</span>&gt;&lt;/script&gt;
+    &lt;link rel=<span style="color:#a31515">&#34;stylesheet&#34;</span> href=<span style="color:#a31515">&#34;style.css&#34;</span> /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=<span style="color:#a31515">&#34;tooltip&#34;</span> class=<span style="color:#a31515">&#34;hidden&#34;</span>&gt;
+      &lt;p&gt;Region: &lt;span id=<span style="color:#a31515">&#34;region&#34;</span>&gt;&lt;/span&gt;&lt;/p&gt;
+      &lt;p&gt;Gender: &lt;span id=<span style="color:#a31515">&#34;gender&#34;</span>&gt;&lt;/span&gt;&lt;/p&gt;
+      &lt;p&gt;Suicides: &lt;span id=<span style="color:#a31515">&#34;suicides&#34;</span>&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script src=<span style="color:#a31515">&#34;stackedbar.js&#34;</span>&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre></div><p>Ok, let&rsquo;s understand the details of this file before moving forward.</p>
+<ul>
+<li>We are loading D3.js library</li>
+<li>Load external CSS file (yet to be created)</li>
+<li>Load a JavaScript file with all the code that is required to create this chart</li>
+<li>Created a <em>div</em> element for the tooltip (more on this later)</li>
+</ul>
+<p>Now, let&rsquo;s create <strong>JavaScript file</strong> which will host the code for creating the data visualization we want to develop. Let&rsquo;s name this file <strong>stackedbar.js</strong>.</p>
+<h2 id="javascript-file">JavaScript file</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#008000">// set svg width and height
+</span><span style="color:#008000"></span><span style="color:#00f">const</span> width = 900,
+  height = 600;
+<span style="color:#00f">const</span> margin = { top: 100, right: 100, bottom: 100, left: 100 };
+<span style="color:#00f">const</span> innerWidth = width - margin.left - margin.right;
+<span style="color:#00f">const</span> innerHeight = height - margin.top - margin.bottom;
+
+<span style="color:#008000">//Load data
+</span><span style="color:#008000"></span>d3.csv(<span style="color:#a31515">&#34;https://raw.githubusercontent.com/learning-monk/DataVisualizationProjects_JS/master/DataViz_with_D3js/Stacked%20bar%20chart%20-%20suicides%20by%20region/suicide_rates_1985-2016.csv&#34;</span>)
+  .then((finalData) =&gt; {
+    finalData.forEach((d) =&gt; {
+      d.Region = d.Region;
+      d.female = parseFloat(d.female);
+      d.male = parseFloat(d.male);
+    });
+
+    <span style="color:#008000">// set up stack method
+</span><span style="color:#008000"></span>    <span style="color:#00f">const</span> stack = d3.stack().keys([<span style="color:#a31515">&#34;female&#34;</span>, <span style="color:#a31515">&#34;male&#34;</span>]);
+    <span style="color:#008000">// Data, stacked
+</span><span style="color:#008000"></span>    <span style="color:#00f">const</span> series = stack(finalData);
+
+    <span style="color:#008000">// set-up scales
+</span><span style="color:#008000"></span>    <span style="color:#00f">const</span> xScale = d3
+      .scaleBand()
+      .domain(finalData.map((d) =&gt; d.Region))
+      .range([0, innerWidth])
+      .padding(0.1);
+
+    <span style="color:#00f">const</span> xAxis = d3.axisBottom().scale(xScale);
+
+    <span style="color:#00f">const</span> yScale = d3
+      .scaleLinear()
+      .domain([0, d3.max(series, (d) =&gt; d3.max(d, (d) =&gt; d[1]))])
+      .rangeRound([innerHeight, 0]);
+
+    <span style="color:#00f">const</span> yAxis = d3.axisLeft().scale(yScale);
+
+    <span style="color:#008000">//Easy colors accessible via a 10-step ordinal scale
+</span><span style="color:#008000"></span>    <span style="color:#00f">const</span> colors = d3
+      .scaleOrdinal()
+      .domain(series.map((d) =&gt; d.key))
+      .range(
+        d3
+          .quantize((t) =&gt; d3.interpolateSpectral(t * 0.8 + 0.1), series.length)
+          .reverse()
+      )
+      .unknown(<span style="color:#a31515">&#34;#ccc&#34;</span>);
+
+    <span style="color:#008000">//Create SVG element
+</span><span style="color:#008000"></span>    <span style="color:#00f">const</span> svg = d3
+      .select(<span style="color:#a31515">&#34;body&#34;</span>)
+      .append(<span style="color:#a31515">&#34;svg&#34;</span>)
+      .attr(<span style="color:#a31515">&#34;viewBox&#34;</span>, [0, 0, width, height]);
+
+    <span style="color:#00f">const</span> mainG = svg
+      .append(<span style="color:#a31515">&#34;g&#34;</span>)
+      .attr(<span style="color:#a31515">&#34;transform&#34;</span>, <span style="color:#a31515">`translate(</span><span style="color:#a31515">${</span>margin.left<span style="color:#a31515">}</span><span style="color:#a31515">,</span><span style="color:#a31515">${</span>margin.top<span style="color:#a31515">}</span><span style="color:#a31515">)`</span>);
+
+    <span style="color:#008000">// Add a group for each row of data
+</span><span style="color:#008000"></span>    <span style="color:#00f">const</span> g = mainG
+      .selectAll(<span style="color:#a31515">&#34;g&#34;</span>)
+      .data(series)
+      .enter()
+      .append(<span style="color:#a31515">&#34;g&#34;</span>)
+      .style(<span style="color:#a31515">&#34;fill&#34;</span>, (d) =&gt; colors(d.key))
+      .attr(<span style="color:#a31515">&#34;transform&#34;</span>, <span style="color:#a31515">`translate(0,0)`</span>);
+
+    <span style="color:#008000">// Add a rect for each data value
+</span><span style="color:#008000"></span>    g.selectAll(<span style="color:#a31515">&#34;rect&#34;</span>)
+      .data((d) =&gt; d)
+      .enter()
+      .append(<span style="color:#a31515">&#34;rect&#34;</span>)
+      .attr(<span style="color:#a31515">&#34;x&#34;</span>, <span style="color:#00f">function</span> (d, i) {
+        <span style="color:#00f">return</span> xScale(d.data.Region);
+      })
+      .attr(<span style="color:#a31515">&#34;y&#34;</span>, <span style="color:#00f">function</span> (d) {
+        <span style="color:#00f">return</span> yScale(d[1]);
+      })
+      .attr(<span style="color:#a31515">&#34;height&#34;</span>, <span style="color:#00f">function</span> (d) {
+        <span style="color:#00f">return</span> yScale(d[0]) - yScale(d[1]);
+      })
+      .attr(<span style="color:#a31515">&#34;width&#34;</span>, xScale.bandwidth())
+      .on(<span style="color:#a31515">&#34;mouseover&#34;</span>, <span style="color:#00f">function</span> (d) {
+        <span style="color:#008000">//Get this bar&#39;s x/y values, then augment for the tooltip
+</span><span style="color:#008000"></span>        <span style="color:#00f">let</span> xPosition =
+          parseFloat(d3.select(<span style="color:#00f">this</span>).attr(<span style="color:#a31515">&#34;x&#34;</span>)) + xScale.bandwidth() * 2;
+        <span style="color:#00f">let</span> yPosition = parseFloat(d3.select(<span style="color:#00f">this</span>).attr(<span style="color:#a31515">&#34;y&#34;</span>)) + innerHeight / 2;
+
+        <span style="color:#008000">// Update the tooltip position and value
+</span><span style="color:#008000"></span>        d3.select(<span style="color:#a31515">&#34;#tooltip&#34;</span>)
+          .style(<span style="color:#a31515">&#34;left&#34;</span>, xPosition + <span style="color:#a31515">&#34;px&#34;</span>)
+          .style(<span style="color:#a31515">&#34;top&#34;</span>, yPosition + <span style="color:#a31515">&#34;px&#34;</span>)
+          .select(<span style="color:#a31515">&#34;#region&#34;</span>)
+          .text(d.data.Region);
+
+        d3.select(<span style="color:#a31515">&#34;#tooltip&#34;</span>)
+          .select(<span style="color:#a31515">&#34;#gender&#34;</span>)
+          .text(d[0] === 0 ? <span style="color:#a31515">&#34;Female&#34;</span> : <span style="color:#a31515">&#34;Male&#34;</span>);
+
+        d3.select(<span style="color:#a31515">&#34;#tooltip&#34;</span>)
+          .select(<span style="color:#a31515">&#34;#suicides&#34;</span>)
+          .text(d[1] - d[0]);
+
+        <span style="color:#008000">//Show the tooltip
+</span><span style="color:#008000"></span>        d3.select(<span style="color:#a31515">&#34;#tooltip&#34;</span>).classed(<span style="color:#a31515">&#34;hidden&#34;</span>, <span style="color:#00f">false</span>);
+      })
+      .on(<span style="color:#a31515">&#34;mouseout&#34;</span>, <span style="color:#00f">function</span> () {
+        <span style="color:#008000">//Hide the tooltip
+</span><span style="color:#008000"></span>        d3.select(<span style="color:#a31515">&#34;#tooltip&#34;</span>).classed(<span style="color:#a31515">&#34;hidden&#34;</span>, <span style="color:#00f">true</span>);
+      });
+
+    <span style="color:#008000">// draw legend
+</span><span style="color:#008000"></span>    <span style="color:#00f">const</span> legend = mainG
+      .append(<span style="color:#a31515">&#34;g&#34;</span>)
+      .attr(<span style="color:#a31515">&#34;class&#34;</span>, <span style="color:#a31515">&#34;legend&#34;</span>)
+      .attr(<span style="color:#a31515">&#34;transform&#34;</span>, <span style="color:#a31515">&#34;translate(&#34;</span> + (innerWidth - 110) + <span style="color:#a31515">&#34;,&#34;</span> + 20 + <span style="color:#a31515">&#34;)&#34;</span>)
+      .selectAll(<span style="color:#a31515">&#34;g&#34;</span>)
+      .data(series)
+      .enter()
+      .append(<span style="color:#a31515">&#34;g&#34;</span>);
+
+    <span style="color:#008000">// draw legend colored rectangles
+</span><span style="color:#008000"></span>    legend
+      .append(<span style="color:#a31515">&#34;rect&#34;</span>)
+      .attr(<span style="color:#a31515">&#34;y&#34;</span>, (d, i) =&gt; i * 30)
+      .attr(<span style="color:#a31515">&#34;height&#34;</span>, 10)
+      .attr(<span style="color:#a31515">&#34;width&#34;</span>, 10)
+      .attr(<span style="color:#a31515">&#34;fill&#34;</span>, (d) =&gt; colors(d.key));
+
+    <span style="color:#008000">// draw legend text
+</span><span style="color:#008000"></span>    legend
+      .append(<span style="color:#a31515">&#34;text&#34;</span>)
+      .attr(<span style="color:#a31515">&#34;y&#34;</span>, (d, i) =&gt; i * 30 + 9)
+      .attr(<span style="color:#a31515">&#34;x&#34;</span>, 5 * 3)
+      .text((d) =&gt; d.key);
+
+    mainG
+      .append(<span style="color:#a31515">&#34;g&#34;</span>)
+      .call(xAxis)
+      .attr(<span style="color:#a31515">&#34;transform&#34;</span>, <span style="color:#a31515">`translate(0,</span><span style="color:#a31515">${</span>innerHeight<span style="color:#a31515">}</span><span style="color:#a31515">)`</span>);
+
+    mainG.append(<span style="color:#a31515">&#34;g&#34;</span>).call(yAxis);
+
+    mainG
+      .append(<span style="color:#a31515">&#34;text&#34;</span>)
+      .attr(<span style="color:#a31515">&#34;class&#34;</span>, <span style="color:#a31515">&#34;chart-title&#34;</span>)
+      .attr(<span style="color:#a31515">&#34;y&#34;</span>, -40)
+      .attr(<span style="color:#a31515">&#34;x&#34;</span>, innerHeight / 2)
+      .text(<span style="color:#a31515">&#34;Suicides by Region and Gender (1985-2016)&#34;</span>)
+      .attr(<span style="color:#a31515">&#34;font-family&#34;</span>, <span style="color:#a31515">&#34;arial&#34;</span>)
+      .attr(<span style="color:#a31515">&#34;font-size&#34;</span>, 24);
+  })
+  .<span style="color:#00f">catch</span>((error) =&gt; {
+    console.log(error);
+  });
+
+</code></pre></div><p>I don&rsquo;t want to provide detailed explanation of what each line of code is doing, as comments are provided at the right places. Also, I don&rsquo;t want to convert this to a tutorial <em>(separate D3.js tutorial series is coming soon)</em>.</p>
+<p>I would encourage you to experiment with the code provided and come-up with your own versions of the visualization, which is, in my opinion is a nice way of learning.</p>
+<p>I will only take you through a few important points which will help you understand the code much easily.</p>
+<p>This visualization is divided into 4 parts:</p>
+<ul>
+<li>Main Chart</li>
+<li>Chart title</li>
+<li>Legend</li>
+<li>Tooltip</li>
+</ul>
+<p><strong>SVG</strong> acts as a canvas which holds all the data visualization elements. The <strong>Main chart</strong> consists of bars for each gender which are stacked one over the other. The x-axis has <strong>Region</strong> and the Y-axis shows the <strong>count</strong>. This is <strong>categorical data</strong>.</p>
+<p>We are appending chart elements to this SVG element. Also, we are grouping common elements (example: x &amp; y axis) and adding these groups to the SVG element. The advantage of creating groups is, the chart elements are easier to maintain.</p>
+<p><strong>Tooltip:</strong> We can use a simple built-in tooltip for the chart. But for this chart, we have created a custom tooltip with a <strong>div</strong> element. Also, we are positioning the tooltip at a place of our choice.</p>
+<p>Let&rsquo;s create a <strong>css</strong> file <strong>(style.css)</strong> which will style the chart elements. This file is only styling tooltip for now.</p>
+<h2 id="css-file">CSS file</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">#tooltip {
+  <span style="color:#00f">position</span>: <span style="color:#00f">absolute</span>;
+  <span style="color:#00f">width</span>: 200<span style="color:#2b91af">px</span>;
+  <span style="color:#00f">height</span>: <span style="color:#00f">auto</span>;
+  <span style="color:#00f">padding</span>: 10<span style="color:#2b91af">px</span>;
+  <span style="color:#00f">background-color</span>: <span style="color:#00f">lightblue</span>;
+  <span style="color:#00f">-webkit-</span><span style="color:#00f">border-radius</span>: 10<span style="color:#2b91af">px</span>;
+  <span style="color:#00f">-moz-</span><span style="color:#00f">border-radius</span>: 10<span style="color:#2b91af">px</span>;
+  <span style="color:#00f">border-radius</span>: 10<span style="color:#2b91af">px</span>;
+  <span style="color:#00f">-webkit-</span><span style="color:#00f">box-shadow</span>: 4<span style="color:#2b91af">px</span> 4<span style="color:#2b91af">px</span> 10<span style="color:#2b91af">px</span> rgba(0, 0, 0, 0.4);
+  <span style="color:#00f">-moz-</span><span style="color:#00f">box-shadow</span>: 4<span style="color:#2b91af">px</span> 4<span style="color:#2b91af">px</span> 10<span style="color:#2b91af">px</span> rgba(0, 0, 0, 0.4);
+  <span style="color:#00f">box-shadow</span>: 4<span style="color:#2b91af">px</span> 4<span style="color:#2b91af">px</span> 10<span style="color:#2b91af">px</span> rgba(0, 0, 0, 0.4);
+  pointer-events: <span style="color:#00f">none</span>;
+}
+
+#tooltip.<span style="color:#2b91af">hidden</span> {
+  <span style="color:#00f">display</span>: <span style="color:#00f">none</span>;
+}
+
+#tooltip p {
+  <span style="color:#00f">margin</span>: 0;
+  <span style="color:#00f">font-family</span>: <span style="color:#00f">sans-serif</span>;
+  <span style="color:#00f">font-size</span>: 16<span style="color:#2b91af">px</span>;
+  <span style="color:#00f">line-height</span>: 16<span style="color:#2b91af">px</span>;
+}
+
+</code></pre></div><p>Here is the <a href="https://codepen.io/ksp585/full/qBWydYq">final visualization</a>.</p>
+<h3 id="analysis">Analysis</h3>
+<ul>
+<li>From the chart it is clear that suicide rate among <strong>Males</strong> is high compared to <strong>Females</strong>.</li>
+<li>Region wise, <strong>Europe</strong> tops the list with most suicides for the period 1985-2016.</li>
+</ul>
+<p>This chart only gives us a preliminary view of the data which answers our question we started off with, which region has highest suicide rates and how is this data distributed by gender.</p>
+<p>There is scope for more analysis. You can find a lot of other data points connected to this dataset in this <a href="https://raw.githubusercontent.com/learning-monk/DataVisualizationProjects_JS/master/DataViz_with_D3js/Stacked%20bar%20chart%20-%20suicides%20by%20region/suicides_full_data.csv">file</a>.</p>
+<p>Feel free to conduct your own analysis and share your work.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/d3.js">D3.js</a></li>
+							
+							<li><a href="/tags/data-viz">data-viz</a></li>
+							
+						</ul>
+					
+				
+			</div></div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2020  © learning-monk.github.io |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

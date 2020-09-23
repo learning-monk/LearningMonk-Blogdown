@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© learning-monk.github.io</copyright>
-    <lastBuildDate>Thu, 17 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Analyzing Suicide rates 1985-2016 with D3.js</title>
+      <link>/posts/analyzing-suicide-rates-1985-2016/</link>
+      <pubDate>Fri, 18 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/analyzing-suicide-rates-1985-2016/</guid>
+      <description>In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender.
+Here is the link to the dataset.
+You might ask me, why use D3.js for creating such simple charts, as much easier tools are available. You are right. D3.js is an overkill for such a simple chart. But, the reason behind using D3.</description>
+    </item>
     
     <item>
       <title>Being an introvert</title>
@@ -29,7 +40,7 @@ My first taste of understanding the definition of introversion came from Susan C
       
       <guid>/posts/what-is-your-learning-style/</guid>
       <description>Have you ever wondered why you weren’t able to concentrate in a class?
-Your thoughts wander about everywhere from plants, water droplets, sky, milky way, universe….. the moment you start listening to a lecture. Generally, people have different levels of concentration. Few people could concentrate for 10 min and few people could concentrate for hours together. This brings us to a point, what makes us different? I would say, it’s all about how our brains are wired.</description>
+Your thoughts wander about everywhere from plants, water droplets, sky, milky way, universe….. the moment you start listening to a lecture. Generally, people have different levels of concentration. Few people could concentrate for 10 min and few could concentrate for hours together. This brings us to a point, what makes us different? I would say, it’s all about how our brains are wired.</description>
     </item>
     
     <item>

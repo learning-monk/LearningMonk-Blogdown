@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>data-viz on Learning Monk Blog</title>
-    <link>/tags/data-viz/</link>
-    <description>Recent content in data-viz on Learning Monk Blog</description>
+    <title>D3.js on Learning Monk Blog</title>
+    <link>/tags/d3.js/</link>
+    <description>Recent content in D3.js on Learning Monk Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© learning-monk.github.io</copyright>
     <lastBuildDate>Fri, 18 Sep 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/data-viz/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/d3.js/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,18 +21,6 @@
       <description>In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender.
 Here is the link to the dataset.
 You might ask me, why use D3.js for creating such simple charts, as much easier tools are available. You are right. D3.js is an overkill for such a simple chart. But, the reason behind using D3.</description>
-    </item>
-    
-    <item>
-      <title>Who Is a Data Visualization Engineer?</title>
-      <link>/posts/who-is-a-data-visualization-engineer/</link>
-      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/who-is-a-data-visualization-engineer/</guid>
-      <description>To answer simply, Data Visualization Engineer is someone who knows how to present data and story tell to drive the point home.
-Let’s discuss what skills one should have to enjoy being in this role:
-  When you look at data especially messy data, your eyes should lit up and your fingers should start working already to clean and process data at hand.
-  When someone explains a problem, you kick start the process by doing research.</description>
     </item>
     
   </channel>
