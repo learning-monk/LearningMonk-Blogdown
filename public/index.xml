@@ -7,18 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© learning-monk.github.io</copyright>
-    <lastBuildDate>Fri, 18 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Analyzing Suicide rates 1985-2016 with D3.js</title>
-      <link>/posts/analyzing-suicide-rates-1985-2016/</link>
-      <pubDate>Fri, 18 Sep 2020 00:00:00 +0000</pubDate>
+      <title>Analyzing suicide rates with D3.js</title>
+      <link>/posts/analyzing-suicide-rates-with-d3-js/</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/analyzing-suicide-rates-1985-2016/</guid>
-      <description>In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender.
+      <guid>/posts/analyzing-suicide-rates-with-d3-js/</guid>
+      <description>In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender for the period 1985-2016.
 Here is the link to the dataset.
 You might ask me, why use D3.js for creating such simple charts, as much easier tools are available. You are right. D3.js is an overkill for such a simple chart. But, the reason behind using D3.</description>
     </item>

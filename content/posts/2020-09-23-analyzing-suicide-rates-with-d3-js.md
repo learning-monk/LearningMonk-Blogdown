@@ -1,17 +1,17 @@
 ---
-title: Analyzing Suicide rates 1985-2016 with D3.js
+title: Analyzing suicide rates with D3.js
 author: Learning Monk
-date: '2020-09-18'
-categories:
-  - Data Visualization
+date: '2020-09-23'
+slug: analyzing-suicide-rates-with-d3-js
+categories: []
 tags:
-  - D3.js
   - data-viz
-slug: analyzing-suicide-rates-1985-2016
+  - D3.js
 draft: no
 ---
 
-In this article, I am going to create a simple **Stacked bar chart** using ***D3.js (a Javascript library for data visualization)*** to understand suicide rates by Region and Gender.
+
+In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender for the period 1985-2016.
 
 Here is the link to the [dataset](https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016).
 
@@ -223,9 +223,9 @@ d3.csv("https://raw.githubusercontent.com/learning-monk/DataVisualizationProject
 
 ```
 
-I don't want to provide detailed explanation of what each line of code is doing, as comments are provided at the right places. Also, I don't want to convert this to a tutorial *(separate D3.js tutorial series is coming soon)*.
+I am not planning to provide detailed explanation of each line of code in this article, as comments are provided at the right places to follow along. I am planning to start a separate tutorial series which covers D3.js specific topics. There, we can discuss how to create chart elements in detail.
 
-I would encourage you to experiment with the code provided and come-up with your own versions of the visualization, which is, in my opinion is a nice way of learning.
+I would encourage you to experiment with the code provided and come-up with your own versions of the visualization, which is, in my opinion a nice way of learning.
 
 I will only take you through a few important points which will help you understand the code much easily.
 
@@ -235,7 +235,7 @@ This visualization is divided into 4 parts:
 - Legend
 - Tooltip
 
-**SVG** acts as a canvas which holds all the data visualization elements. The **Main chart** consists of bars for each gender which are stacked one over the other. The x-axis has **Region** and the Y-axis shows the **count**. This is **categorical data**.
+**SVG** acts as a canvas which holds all the data visualization elements. The **Main chart** consists of bars for each gender which are stacked one over the other. The x-axis has **Region** and the Y-axis shows the **count**. 
 
 We are appending chart elements to this SVG element. Also, we are grouping common elements (example: x & y axis) and adding these groups to the SVG element. The advantage of creating groups is, the chart elements are easier to maintain.
 
@@ -274,14 +274,14 @@ Let's create a **css** file **(style.css)** which will style the chart elements.
 
 ```
 
-Here is the [final visualization](https://codepen.io/ksp585/full/qBWydYq).
+### Here is the [final visualization](https://codepen.io/ksp585/full/qBWydYq).
 
 ### Analysis
 
 - From the chart it is clear that suicide rate among **Males** is high compared to **Females**.
 - Region wise, **Europe** tops the list with most suicides for the period 1985-2016.
 
-This chart only gives us a preliminary view of the data which answers our question we started off with, which region has highest suicide rates and how is this data distributed by gender.
+This chart only gives us a preliminary view of the data which answers the question we started off with, which region has highest suicide rates and how is this data distributed by gender?
 
 There is scope for more analysis. You can find a lot of other data points connected to this dataset in this [file](https://raw.githubusercontent.com/learning-monk/DataVisualizationProjects_JS/master/DataViz_with_D3js/Stacked%20bar%20chart%20-%20suicides%20by%20region/suicides_full_data.csv).
 

@@ -2,29 +2,29 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Analyzing Suicide rates 1985-2016 with D3.js - Learning Monk Blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta itemprop="name" content="Analyzing Suicide rates 1985-2016 with D3.js">
-<meta itemprop="description" content="In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender.
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Analyzing suicide rates with D3.js - Learning Monk Blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Analyzing suicide rates with D3.js">
+<meta itemprop="description" content="In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender for the period 1985-2016.
 Here is the link to the dataset.
 You might ask me, why use D3.js for creating such simple charts, as much easier tools are available. You are right. D3.js is an overkill for such a simple chart. But, the reason behind using D3.">
-<meta itemprop="datePublished" content="2020-09-18T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-09-18T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1171">
+<meta itemprop="datePublished" content="2020-09-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1182">
 
 
 
-<meta itemprop="keywords" content="D3.js,data-viz," />
-<meta property="og:title" content="Analyzing Suicide rates 1985-2016 with D3.js" />
-<meta property="og:description" content="In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender.
+<meta itemprop="keywords" content="data-viz,D3.js," />
+<meta property="og:title" content="Analyzing suicide rates with D3.js" />
+<meta property="og:description" content="In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender for the period 1985-2016.
 Here is the link to the dataset.
 You might ask me, why use D3.js for creating such simple charts, as much easier tools are available. You are right. D3.js is an overkill for such a simple chart. But, the reason behind using D3." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/analyzing-suicide-rates-1985-2016/" />
-<meta property="article:published_time" content="2020-09-18T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-09-18T00:00:00+00:00" />
+<meta property="og:url" content="/posts/analyzing-suicide-rates-with-d3-js/" />
+<meta property="article:published_time" content="2020-09-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-23T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Analyzing Suicide rates 1985-2016 with D3.js"/>
-<meta name="twitter:description" content="In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender.
+<meta name="twitter:title" content="Analyzing suicide rates with D3.js"/>
+<meta name="twitter:description" content="In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender for the period 1985-2016.
 Here is the link to the dataset.
 You might ask me, why use D3.js for creating such simple charts, as much easier tools are available. You are right. D3.js is an overkill for such a simple chart. But, the reason behind using D3."/>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
@@ -75,18 +75,18 @@ You might ask me, why use D3.js for creating such simple charts, as much easier 
 				
 					<div class="meta">
 						<div class="date">
-							<span class="day">18</span>
+							<span class="day">23</span>
 							<span class="rest">Sep 2020</span>
 						</div>
 					</div>
 				
 				<div class="matter">
-					<h1 class="title">Analyzing Suicide rates 1985-2016 with D3.js</h1>
+					<h1 class="title">Analyzing suicide rates with D3.js</h1>
 				</div>
 			</div>
 					
 			<div class="markdown">
-				<p>In this article, I am going to create a simple <strong>Stacked bar chart</strong> using <em><strong>D3.js (a Javascript library for data visualization)</strong></em> to understand suicide rates by Region and Gender.</p>
+				<p>In this article, I am going to create a simple Stacked bar chart using D3.js (a Javascript library for data visualization) to understand suicide rates by Region and Gender for the period 1985-2016.</p>
 <p>Here is the link to the <a href="https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016">dataset</a>.</p>
 <p>You might ask me, why use D3.js for creating such simple charts, as much easier tools are available. You are right. D3.js is an overkill for such a simple chart. But, the reason behind using D3.js is, I like to create charts from scratch with code, and D3.js helps me learn intricacies of building charts unlike the commercial tools which gives me ready-made templates to work on.</p>
 <h3 id="my-goal-here-is-to-understand-how-each-piece-is-put-together-to-create-charts-in-d3js">My goal here is to understand how each piece is put together to create charts in D3.js.</h3>
@@ -281,8 +281,8 @@ You might ask me, why use D3.js for creating such simple charts, as much easier 
     console.log(error);
   });
 
-</code></pre></div><p>I don&rsquo;t want to provide detailed explanation of what each line of code is doing, as comments are provided at the right places. Also, I don&rsquo;t want to convert this to a tutorial <em>(separate D3.js tutorial series is coming soon)</em>.</p>
-<p>I would encourage you to experiment with the code provided and come-up with your own versions of the visualization, which is, in my opinion is a nice way of learning.</p>
+</code></pre></div><p>I am not planning to provide detailed explanation of each line of code in this article, as comments are provided at the right places to follow along. I am planning to start a separate tutorial series which covers D3.js specific topics. There, we can discuss how to create chart elements in detail.</p>
+<p>I would encourage you to experiment with the code provided and come-up with your own versions of the visualization, which is, in my opinion a nice way of learning.</p>
 <p>I will only take you through a few important points which will help you understand the code much easily.</p>
 <p>This visualization is divided into 4 parts:</p>
 <ul>
@@ -291,7 +291,7 @@ You might ask me, why use D3.js for creating such simple charts, as much easier 
 <li>Legend</li>
 <li>Tooltip</li>
 </ul>
-<p><strong>SVG</strong> acts as a canvas which holds all the data visualization elements. The <strong>Main chart</strong> consists of bars for each gender which are stacked one over the other. The x-axis has <strong>Region</strong> and the Y-axis shows the <strong>count</strong>. This is <strong>categorical data</strong>.</p>
+<p><strong>SVG</strong> acts as a canvas which holds all the data visualization elements. The <strong>Main chart</strong> consists of bars for each gender which are stacked one over the other. The x-axis has <strong>Region</strong> and the Y-axis shows the <strong>count</strong>.</p>
 <p>We are appending chart elements to this SVG element. Also, we are grouping common elements (example: x &amp; y axis) and adding these groups to the SVG element. The advantage of creating groups is, the chart elements are easier to maintain.</p>
 <p><strong>Tooltip:</strong> We can use a simple built-in tooltip for the chart. But for this chart, we have created a custom tooltip with a <strong>div</strong> element. Also, we are positioning the tooltip at a place of our choice.</p>
 <p>Let&rsquo;s create a <strong>css</strong> file <strong>(style.css)</strong> which will style the chart elements. This file is only styling tooltip for now.</p>
@@ -322,13 +322,13 @@ You might ask me, why use D3.js for creating such simple charts, as much easier 
   <span style="color:#00f">line-height</span>: 16<span style="color:#2b91af">px</span>;
 }
 
-</code></pre></div><p>Here is the <a href="https://codepen.io/ksp585/full/qBWydYq">final visualization</a>.</p>
+</code></pre></div><h3 id="here-is-the-final-visualizationhttpscodepenioksp585fullqbwydyq">Here is the <a href="https://codepen.io/ksp585/full/qBWydYq">final visualization</a>.</h3>
 <h3 id="analysis">Analysis</h3>
 <ul>
 <li>From the chart it is clear that suicide rate among <strong>Males</strong> is high compared to <strong>Females</strong>.</li>
 <li>Region wise, <strong>Europe</strong> tops the list with most suicides for the period 1985-2016.</li>
 </ul>
-<p>This chart only gives us a preliminary view of the data which answers our question we started off with, which region has highest suicide rates and how is this data distributed by gender.</p>
+<p>This chart only gives us a preliminary view of the data which answers the question we started off with, which region has highest suicide rates and how is this data distributed by gender?</p>
 <p>There is scope for more analysis. You can find a lot of other data points connected to this dataset in this <a href="https://raw.githubusercontent.com/learning-monk/DataVisualizationProjects_JS/master/DataViz_with_D3js/Stacked%20bar%20chart%20-%20suicides%20by%20region/suicides_full_data.csv">file</a>.</p>
 <p>Feel free to conduct your own analysis and share your work.</p>
 
@@ -339,9 +339,9 @@ You might ask me, why use D3.js for creating such simple charts, as much easier 
 					
 						<ul class="flat">
 							
-							<li><a href="/tags/d3.js">D3.js</a></li>
-							
 							<li><a href="/tags/data-viz">data-viz</a></li>
+							
+							<li><a href="/tags/d3.js">D3.js</a></li>
 							
 						</ul>
 					
