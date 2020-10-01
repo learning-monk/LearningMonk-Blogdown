@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>plotly on Learning Monk Blog</title>
+    <link>/tags/plotly/</link>
+    <description>Recent content in plotly on Learning Monk Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© learning-monk.github.io</copyright>
+    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/plotly/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Analysis: Air Quality in India</title>
+      <link>/posts/analysis-air-quality-in-india/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/analysis-air-quality-in-india/</guid>
+      <description>.myCode {background-color: black;color: white;}Source of the Data:
+https://www.kaggle.com/rohanrao/air-quality-data-in-india?select=city_day.csv
+Process of calculating air quality index:
+https://www.kaggle.com/rohanrao/calculating-aqi-air-quality-index-tutorial
+What are the safe limits of these pollutants in air for India?
+http://www.arthapedia.in/index.php?title=Ambient_Air_Quality_Standards_in_India
+About the Dataset:The dataset has air quality readings of major India cities for the period 2015-2020.
+This dataset captures the air quality parameters of PM2.5, PM10, Nitrogen Oxide (NO), Nitrogen Dioxide (NO2), Ammonia (NH3), Carbon Monoxide (CO), Sulphur Dioxide (SO2), Ozone (O3), Benzene,Toulene, Xylene.</description>
+    </item>
+    
+  </channel>
+</rss>
