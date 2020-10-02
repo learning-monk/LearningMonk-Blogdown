@@ -19,6 +19,16 @@ color: white;
 }
 ```
 
+Let's explore air quality data of India. This dataset has daily pollutant readings for the period 2015-2020. 
+
+**Goal of this analysis:**
+
+- Understand how is the trend of these pollutants over the years
+
+- How are the two-tier cities coping up with the increased level of infrastructure development and vehicular pollution due to increased of human migration.
+
+
+
 **Source of the Data:**
 
 https://www.kaggle.com/rohanrao/air-quality-data-in-india?select=city_day.csv
