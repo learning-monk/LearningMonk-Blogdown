@@ -25,7 +25,7 @@ Let's explore air quality data of India. This dataset has daily pollutant readin
 
 - Understand how is the trend of these pollutants over the years
 
-- How are the two-tier cities coping up with the increased level of infrastructure development and vehicular pollution due to increased of human migration.
+- How are the two-tier cities coping up with the increased level of infrastructure development and vehicular pollution due to increased human migration.
 
 
 
