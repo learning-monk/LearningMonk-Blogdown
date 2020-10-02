@@ -277,7 +277,7 @@ Let's create a **css** file **(style.css)** which will style the chart elements.
 
 ### Here is the [final visualization](https://codepen.io/ksp585/full/qBWydYq).
 
-### Analysis
+### Interpretation:
 
 - From the chart it is clear that suicide rate among **Males** is high compared to **Females**.
 - Region wise, **Europe** tops the list with most suicides for the period 1985-2016.
