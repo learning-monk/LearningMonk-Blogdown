@@ -15,7 +15,7 @@ googleAnalytics = ""
 disqusShortname = ""
 
 [params]
-	subtitle = "About Data, Visualization and my Learning journey"
+	subtitle = "About Data, Visualizations and my Learning journey"
 
 	# Optional 64x64 avatar image.
 	# avatar = "https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"
