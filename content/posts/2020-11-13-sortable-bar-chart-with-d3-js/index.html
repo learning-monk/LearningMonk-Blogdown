@@ -1,0 +1,405 @@
+---
+title: Sortable Bar Chart with D3.js
+author: Learning Monk
+date: '2020-11-13'
+tags:
+  - D3.js
+draft: no
+---
+
+<script src="{{< relref "posts/2020-11-13-sortable-bar-chart-with-d3-js/index.html" >}}index_files/header-attrs/header-attrs.js"></script>
+<link href="{{< relref "posts/2020-11-13-sortable-bar-chart-with-d3-js/index.html" >}}index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="{{< relref "posts/2020-11-13-sortable-bar-chart-with-d3-js/index.html" >}}index_files/anchor-sections/anchor-sections.js"></script>
+
+
+<style type="text/css">
+.myCode {
+background-color: black;
+color: white;
+}
+</style>
+<p>This chart is made based on Mike Bostock’s example code: <a href="https://observablehq.com/@d3/sortable-bar-chart#chart" class="uri">https://observablehq.com/@d3/sortable-bar-chart#chart</a></p>
+<p>I rewrote the code implementing my own logic. Let’s quickly understand the data behind this code before we dive into the steps of creating the chart.</p>
+<p>This is a small dataset with Alphabets and their frequency of usage in words.</p>
+<p><strong>Link to the dataset:</strong>
+<a href="https://gist.githubusercontent.com/learning-monk/96c71857dcfc348ecbcda5cb4a90163a/raw/69fa895f7b5f2d99d236762969c46b1a9c47604a/alphabet.csv" class="uri">https://gist.githubusercontent.com/learning-monk/96c71857dcfc348ecbcda5cb4a90163a/raw/69fa895f7b5f2d99d236762969c46b1a9c47604a/alphabet.csv</a></p>
+<p><strong>Components to be added:</strong></p>
+<ul>
+<li>Add a container DIV which holds the SVG element and its contents</li>
+<li>Add a drop down select box which let’s you select the options to sort the bars</li>
+<li>Finally, add an SVG element where you draw your chart</li>
+</ul>
+<p>Here is the complete code for creating this chart. I will explain each section as and when required.</p>
+<p><strong>HTML File:</strong> <code>index.html</code></p>
+<pre class="html myCode"><code>  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot; /&gt;
+      &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+      &lt;script src=&quot;https://d3js.org/d3.v5.min.js&quot;&gt;&lt;/script&gt;
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; /&gt;
+      &lt;title&gt;Sorted Bar Charts&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;h1 style=&quot;text-align: center&quot;&gt;Sortable Bar charts&lt;/h1&gt;
+      &lt;p style=&quot;text-align: center&quot;&gt;
+        This chart implements bar chart sorting with D3.js.
+      &lt;/p&gt;
+      &lt;div id=&quot;selectMe&quot;&gt;&lt;/div&gt;
+      &lt;div id=&quot;chartContainer&quot;&gt;&lt;/div&gt;
+      &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+<p>If you observe in this HTML file, I have created two DIVs. One holds the drop down and other holds the SVG element.</p>
+<p><strong>CSS File:</strong> <code>style.css</code></p>
+<pre class="css myCode"><code>  .label {
+    margin-left: 15px;
+  }
+  
+  #selection {
+    font-size: 19px;
+    margin-left: 15px;
+  }
+</code></pre>
+<style type="text/css">
+  .label {
+    margin-left: 15px;
+  }
+  
+  #selection {
+    font-size: 19px;
+    margin-left: 15px;
+  }
+
+</style>
+<p>This CSS file is styling the drop down and its label.</p>
+<p><strong>JavaScript File:</strong> <code>script.js</code></p>
+<pre class="js myCode"><code>  const w = 1000;
+  const h = 500;
+  
+  const margins = { top: 50, left: 100, bottom: 100, right: 100 }
+  const innerWidth = w - margins.left - margins.right;
+  const innerHeight = h - margins.top - margins.bottom;
+  
+  url = &quot;https://gist.githubusercontent.com/learning-monk/96c71857dcfc348ecbcda5cb4a90163a/raw/69fa895f7b5f2d99d236762969c46b1a9c47604a/alphabet.csv&quot;
+  
+  d3.csv(url).then((data, error) =&gt; {
+    if (error) throw error;
+  
+    data.forEach(d =&gt; {
+      d.letter = d.letter;
+      d.frequency = +d.frequency;
+    });
+  
+    // Create a select dropdown
+    const mySelection = document.getElementById(&quot;selectMe&quot;);
+  
+    d3.select(mySelection)
+    .append(&quot;span&quot;)
+    .append(&quot;p&quot;)
+    .attr(&quot;class&quot;, &quot;label&quot;)
+    .text(&quot;How should these bars sorted?&quot;)
+    .style(&quot;font-weight&quot;, &quot;bold&quot;).style(&quot;color&quot;, &quot;red&quot;).style(&quot;font-size&quot;, &quot;25px&quot;);
+  
+    const selectItems = [&quot;Alphabetically&quot;, &quot;Ascendingly&quot;, &quot;Descendingly&quot;];
+  
+    // Create a drop down
+    d3.select(mySelection)
+      .append(&quot;span&quot;)
+      .append(&quot;select&quot;)
+      .attr(&quot;id&quot;, &quot;selection&quot;)
+      .attr(&quot;name&quot;, &quot;tasks&quot;)
+      .selectAll(&quot;option&quot;)
+      .data(selectItems)
+      .enter()
+      .append(&quot;option&quot;)
+      .attr(&quot;value&quot;, d =&gt; d)
+      .text(d =&gt; d);
+    
+    // When the page loads, the chart which sorted alphabetically loads by default
+    document.addEventListener(&quot;DOMContentLoaded&quot;, myChart()); 
+  
+    // Chart changes based on drop down selection
+    d3.select(&quot;#selection&quot;).on(&quot;change&quot;, function() {
+      const selectedOption = d3.select(this).node().value;
+      if (selectedOption == &quot;Ascendingly&quot;) {
+        data.sort((a,b) =&gt; {
+          return d3.ascending(a.frequency, b.frequency)
+        }) 
+      } else if (selectedOption == &quot;Descendingly&quot;) {
+        data.sort((a,b) =&gt; {
+          return d3.descending(a.frequency, b.frequency)
+        })
+      } else if (selectedOption == &quot;Alphabetically&quot;) {
+        data.sort((a,b) =&gt; {
+          return d3.ascending(a.letter, b.letter)
+        })
+      }
+      myChart();
+    })
+    
+    function myChart () {
+      // Append SVG to this DIV
+      const chartDIV = document.createElement(&quot;div&quot;);
+  
+      // Create scales
+      const xScale = d3.scaleBand()
+      .domain(data.map((d) =&gt; d.letter))
+      .rangeRound([0, innerWidth])
+      // .round(true)
+      .paddingInner(0.05);
+  
+      const yScale = d3.scaleLinear()
+        .domain([0,d3.max(data, d =&gt; d.frequency)]).nice()
+        .range([innerHeight, 0]);
+  
+      const xAxis = d3.axisBottom().scale(xScale);
+  
+      const yAxis = d3.axisLeft().scale(yScale);
+  
+      const svg = d3.select(chartDIV)
+        .append(&quot;svg&quot;)
+        .attr(&quot;viewBox&quot;, [0,0,w,h]);
+  
+      const mainG = svg
+        .append(&quot;g&quot;)
+        .attr(&quot;transform&quot;, `translate(${margins.left}, ${margins.top})`);
+  
+      const g = mainG
+        .selectAll(&quot;g&quot;)
+        .data(data)
+        .enter()
+        .append(&quot;g&quot;)
+        .attr(&quot;transform&quot;, `translate(15,0)`);
+  
+      g.append(&quot;rect&quot;)
+        .attr(&quot;class&quot;, &quot;bars&quot;)
+        .attr(&quot;x&quot;, d =&gt; xScale(d.letter) - innerWidth/data.length/2)
+        // .attr(&quot;x&quot;, (d,i) =&gt; i*(innerWidth/data.length))
+        .attr(&quot;y&quot;, d =&gt; yScale(d.frequency))
+        .attr(&quot;width&quot;, innerWidth/data.length-1.5)
+        .attr(&quot;height&quot;, (d) =&gt; innerHeight - yScale(d.frequency))
+        .attr(&quot;fill&quot;, d =&gt; d.frequency == d3.max(data, d =&gt; d.frequency) ? &quot;#f4c430&quot; : &quot;green&quot;)
+        .append(&quot;text&quot;)
+          .attr(&quot;x&quot;, 5*3)
+          .attr(&quot;y&quot;, (d,i) =&gt; i*5)
+          .text(d =&gt; d.frequency);
+  
+      mainG
+        .append(&quot;g&quot;)
+        .call(xAxis)
+        .attr(&quot;transform&quot;, `translate(0, ${innerHeight})`);
+      
+      mainG
+        .append(&quot;g&quot;)
+        .call(yAxis);
+  
+      // This code will redraw charts based on dropdown selection. 
+      // At any point in time, chartContainer DIV only contains one chart. 
+      // The charts are recycled.
+      const showChart = document.getElementById(&quot;chartContainer&quot;);
+      while (showChart.firstChild) {
+        showChart.firstChild.remove();
+      }
+      showChart.appendChild(chartDIV);
+  
+    }
+  
+  });</code></pre>
+<script type="text/javascript">
+  const w = 1000;
+  const h = 500;
+  
+  const margins = { top: 50, left: 100, bottom: 100, right: 100 }
+  const innerWidth = w - margins.left - margins.right;
+  const innerHeight = h - margins.top - margins.bottom;
+  
+  url = "https://gist.githubusercontent.com/learning-monk/96c71857dcfc348ecbcda5cb4a90163a/raw/69fa895f7b5f2d99d236762969c46b1a9c47604a/alphabet.csv"
+  
+  d3.csv(url).then((data, error) => {
+    if (error) throw error;
+  
+    data.forEach(d => {
+      d.letter = d.letter;
+      d.frequency = +d.frequency;
+    });
+  
+    // Create a select dropdown
+    const mySelection = document.getElementById("selectMe");
+  
+    d3.select(mySelection)
+    .append("span")
+    .append("p")
+    .attr("class", "label")
+    .text("How should these bars sorted?")
+    .style("font-weight", "bold").style("color", "red").style("font-size", "25px");
+  
+    const selectItems = ["Alphabetically", "Ascendingly", "Descendingly"];
+  
+    // Create a drop down
+    d3.select(mySelection)
+      .append("span")
+      .append("select")
+      .attr("id", "selection")
+      .attr("name", "tasks")
+      .selectAll("option")
+      .data(selectItems)
+      .enter()
+      .append("option")
+      .attr("value", d => d)
+      .text(d => d);
+    
+    // When the page loads, the chart which sorted alphabetically loads by default
+    document.addEventListener("DOMContentLoaded", myChart()); 
+  
+    // Chart changes based on drop down selection
+    d3.select("#selection").on("change", function() {
+      const selectedOption = d3.select(this).node().value;
+      if (selectedOption == "Ascendingly") {
+        data.sort((a,b) => {
+          return d3.ascending(a.frequency, b.frequency)
+        }) 
+      } else if (selectedOption == "Descendingly") {
+        data.sort((a,b) => {
+          return d3.descending(a.frequency, b.frequency)
+        })
+      } else if (selectedOption == "Alphabetically") {
+        data.sort((a,b) => {
+          return d3.ascending(a.letter, b.letter)
+        })
+      }
+      myChart();
+    })
+    
+    function myChart () {
+      // Append SVG to this DIV
+      const chartDIV = document.createElement("div");
+  
+      // Create scales
+      const xScale = d3.scaleBand()
+      .domain(data.map((d) => d.letter))
+      .rangeRound([0, innerWidth])
+      // .round(true)
+      .paddingInner(0.05);
+  
+      const yScale = d3.scaleLinear()
+        .domain([0,d3.max(data, d => d.frequency)]).nice()
+        .range([innerHeight, 0]);
+  
+      const xAxis = d3.axisBottom().scale(xScale);
+  
+      const yAxis = d3.axisLeft().scale(yScale);
+  
+      const svg = d3.select(chartDIV)
+        .append("svg")
+        .attr("viewBox", [0,0,w,h]);
+  
+      const mainG = svg
+        .append("g")
+        .attr("transform", `translate(${margins.left}, ${margins.top})`);
+  
+      const g = mainG
+        .selectAll("g")
+        .data(data)
+        .enter()
+        .append("g")
+        .attr("transform", `translate(15,0)`);
+  
+      g.append("rect")
+        .attr("class", "bars")
+        .attr("x", d => xScale(d.letter) - innerWidth/data.length/2)
+        // .attr("x", (d,i) => i*(innerWidth/data.length))
+        .attr("y", d => yScale(d.frequency))
+        .attr("width", innerWidth/data.length-1.5)
+        .attr("height", (d) => innerHeight - yScale(d.frequency))
+        .attr("fill", d => d.frequency == d3.max(data, d => d.frequency) ? "#f4c430" : "green")
+        .append("text")
+          .attr("x", 5*3)
+          .attr("y", (d,i) => i*5)
+          .text(d => d.frequency);
+  
+      mainG
+        .append("g")
+        .call(xAxis)
+        .attr("transform", `translate(0, ${innerHeight})`);
+      
+      mainG
+        .append("g")
+        .call(yAxis);
+  
+      // This code will redraw charts based on dropdown selection. 
+      // At any point in time, chartContainer DIV only contains one chart. 
+      // The charts are recycled.
+      const showChart = document.getElementById("chartContainer");
+      while (showChart.firstChild) {
+        showChart.firstChild.remove();
+      }
+      showChart.appendChild(chartDIV);
+  
+    }
+  
+  });
+</script>
+<p>This D3.js code can be broadly divided into blocks as shown below.</p>
+<ul>
+<li>Load Data</li>
+<li>Transform data</li>
+<li>Create a drop down with values</li>
+<li>Create scales</li>
+<li>Create SVG</li>
+<li>Add chart elements to SVG</li>
+<li>Append SVG to Chart container DIV</li>
+<li>Write functions to render charts for <strong>Load</strong> and <strong>Change</strong> events.</li>
+</ul>
+<p>Most of the steps mentioned above are common for D3.js charts. So, I am not going in depth of each step. However, I want to particularly highlight the <strong>Load</strong> and <strong>Change</strong> events associated with this chart.</p>
+<p>When the chart loads, a default chart is displayed ie., bars in alphabetical order.</p>
+<pre class="js myCode"><code>  document.addEventListener(&quot;DOMContentLoaded&quot;, myChart());</code></pre>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", myChart());
+</script>
+<p><code>myChart()</code> is a function which is template to draw chart.</p>
+<p>When a user changes the selection from the drop down, charts based on the selection gets rendered. This is when <strong>Change</strong> event kicks in.</p>
+<pre class="js myCode"><code>      d3.select(&quot;#selection&quot;).on(&quot;change&quot;, function() {
+      const selectedOption = d3.select(this).node().value;
+      if (selectedOption == &quot;Ascendingly&quot;) {
+        data.sort((a,b) =&gt; {
+          return d3.ascending(a.frequency, b.frequency)
+        }) 
+      } else if (selectedOption == &quot;Descendingly&quot;) {
+        data.sort((a,b) =&gt; {
+          return d3.descending(a.frequency, b.frequency)
+        })
+      } else if (selectedOption == &quot;Alphabetically&quot;) {
+        data.sort((a,b) =&gt; {
+          return d3.ascending(a.letter, b.letter)
+        })
+      }
+      myChart();
+    })
+    </code></pre>
+<script type="text/javascript">
+      d3.select("#selection").on("change", function() {
+      const selectedOption = d3.select(this).node().value;
+      if (selectedOption == "Ascendingly") {
+        data.sort((a,b) => {
+          return d3.ascending(a.frequency, b.frequency)
+        }) 
+      } else if (selectedOption == "Descendingly") {
+        data.sort((a,b) => {
+          return d3.descending(a.frequency, b.frequency)
+        })
+      } else if (selectedOption == "Alphabetically") {
+        data.sort((a,b) => {
+          return d3.ascending(a.letter, b.letter)
+        })
+      }
+      myChart();
+    })
+    
+</script>
+<p>This piece of code sorts the underlying data based on user selection and that data is passed on to <code>myChart()</code> to draw the chart.</p>
+<p>Recycling happens at the end of the code where SVG along with its chart elements gets changed based on user selection. Similar to blackboard where the previous notes is erased and fresh notes is drafted.</p>
+<p>Hope this article helped you in understanding the logic behind sorting bars in a bar chart.</p>
+<p>Feel free to reach out to me if you have any questions.</p>
+<p><em>Note: If you would like to see this chart live in action. Access this codepen: <a href="https://codepen.io/ksp585/full/VwjgwoO" class="uri">https://codepen.io/ksp585/full/VwjgwoO</a></em></p>

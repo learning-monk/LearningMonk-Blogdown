@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© learning-monk.github.io</copyright>
-    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sortable Bar Chart with D3.js</title>
+      <link>/posts/2020-11-13-sortable-bar-chart-with-d3-js/</link>
+      <pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2020-11-13-sortable-bar-chart-with-d3-js/</guid>
+      <description>.myCode {background-color: black;color: white;}This chart is made based on Mike Bostock’s example code: https://observablehq.com/@d3/sortable-bar-chart#chart
+I rewrote the code implementing my own logic. Let’s quickly understand the data behind this code before we dive into the steps of creating the chart.
+This is a small dataset with Alphabets and their frequency of usage in words.
+Link to the dataset:https://gist.githubusercontent.com/learning-monk/96c71857dcfc348ecbcda5cb4a90163a/raw/69fa895f7b5f2d99d236762969c46b1a9c47604a/alphabet.csv
+Components to be added:</description>
+    </item>
     
     <item>
       <title>Analysis: Air Quality in India</title>
