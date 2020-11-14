@@ -14,9 +14,16 @@ color: white;
 }
 ```
 
+
+
 This chart is made based on Mike Bostock's example code: https://observablehq.com/@d3/sortable-bar-chart#chart
 
 I rewrote the code implementing my own logic. Let's quickly understand the data behind this code before we dive into the steps of creating the chart.
+
+```{r "Sortable bar charts", echo=FALSE, out.width = '100%'}
+knitr::include_graphics("/static/images/sortable_bar_chart.png", error = FALSE)
+```
+
 
 
 This is a small dataset with Alphabets and their frequency of usage in words.
