@@ -9,7 +9,7 @@ tags:
   - data-viz
   - R
   - plotly
-draft: no
+draft: yes
 ---
 
 ```{css echo=FALSE}
@@ -64,12 +64,7 @@ Load **Pollution** and **Population Estimates** datasets.
 
 ```{r class.source="myCode"}
 # Load pollution data
-pollution <- read.csv('https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONMENT/Indian_cities_daily_pollution_2015-2020.csv', 
-                      stringsAsFactor=FALSE, na.strings=c(""))
-
-# Load population estimates data
-pop_est <- read.csv('https://raw.githubusercontent.com/learning-monk/datasets/master/ENVIRONMENT/cities%20with%20population%20estimates%202019.csv',
-                   stringsAsFactor=FALSE)
+pollution <- read.csv('https://raw.githubusercontent.com/learning-monk/datasets/master/Indian_cities_daily_pollution_2015-2020.csv', stringsAsFactor=FALSE, na.strings=c(""))
 
 ```
 

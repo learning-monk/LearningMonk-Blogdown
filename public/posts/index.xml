@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© learning-monk.github.io</copyright>
-    <lastBuildDate>Fri, 13 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Do you know, you can create custom charts with no code?</title>
+      <link>/posts/2021-04-03-do-you-know-you-can-create-custom-charts-with-no-code/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2021-04-03-do-you-know-you-can-create-custom-charts-with-no-code/</guid>
+      <description>Let me introduce you to Charticulator.
+Charticulator is an open source and free to use tool from Microsoft Research team, which helps you to create reusable custom chart layouts with no code. This tool is implemented as an HTML5 application and uses technologies including React, Typescript and Web Assembly. This is a browser based tool, which means your charts stay in your browser as long you don&amp;rsquo;t delete your browsing history.</description>
+    </item>
     
     <item>
       <title>Sortable Bar Chart with D3.js</title>
